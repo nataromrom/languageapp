@@ -1,0 +1,8 @@
+$colorMain: rgb(82, 82, 189);
+$sizeMain: 14px;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
