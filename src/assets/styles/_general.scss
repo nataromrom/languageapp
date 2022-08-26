@@ -1,0 +1,12 @@
+.main, .cards {
+    @include flexCenter;
+    flex-wrap: wrap;
+}
+
+.cards {
+    width: 80vw;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,39 @@
+.card {
+    @include flexCenter;
+    flex-direction: column;
+    width: 140px;
+    height: 190px;
+    background-color: rgba(244,242,243);
+    border-radius: 20px;
+    margin: 30px 10px 0px 0px; 
+    border: 1px solid $colorGrayLight;
+    
+}
+
+.btnTranslate {
+    border-radius: 10px;
+    background-color: $colorGreen;
+    padding: 2px 15px;
+    display: inline-block;
+    margin-top: 35px; 
+    color: white;
+}
+
+.word {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.transcription {
+    color: $colorGrayDark;
+}
+
+.btnVisible {
+    padding: 2px 15px;
+    display: inline-block;
+    margin-top: 35px; 
+    color: $colorGreen;
+    font-size: 17px;
+    pointer-events: none;
+}

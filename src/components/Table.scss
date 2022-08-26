@@ -1,17 +1,15 @@
-@import '../assets/styles/variables.scss';
-
 .table {
     @include flexCenter;
 
     th {
-        border: 1px solid rgba(128, 128, 128, 0.459);
+        border: 1px solid $colorGrayLight;
         border-collapse: collapse;
         padding:  5px 20px;
         background-color:#0088cc63;
     }
 
     td {
-        border: 1px solid rgba(128, 128, 128, 0.459);
+        border: 1px solid $colorGrayLight;
         border-collapse: collapse;
         padding:  2px 20px;
     }
@@ -21,7 +19,6 @@ table {
     border-collapse: collapse;
 }
 
-
 .button{
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
     background-image: linear-gradient(top, #f4f1ee, #fff);
@@ -29,9 +26,9 @@ table {
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
     height: 40px;
-    margin: 0 15px 15px 0;
+    margin: 8px 15px 15px 0;
     position: relative;
-    width: 40px;			
+    width: 38px;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 }
@@ -48,23 +45,22 @@ table {
     width: 30px;
 }
 
-
-.flower:after{
+.btnEdit:after{
     content: "✎";
-    left: 5px;
-    top: 8px;
+    left: 4px;
+    top: 6px;
 }
 
 .btnSave:after{
     content: "✔";
-    left:5px;
-    top:8px;
+    left:4px;
+    top:6px;
 }
 
 .btnDelete:after{
     content: "✖";
-    left: 5px;
-    top: 8px;
+    left: 4px;
+    top: 6px;
 }
 
 .button:hover{
@@ -73,12 +69,7 @@ table {
     color:#0088cc;
 }
 
-.heart:hover:after{
-    color:#f94e66;
-    text-shadow:0px 0px 6px #f94e66;
-}
-
-.flower:hover:after{
+.btnEdit:hover:after{
     color:#f99e4e;
     text-shadow:0px 0px 6px #f99e4e;
 }
@@ -93,8 +84,6 @@ table {
     text-shadow:0px 0px 6px #eb2f2f;
 }
 
-
-
 .button:active{
     background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
     background-image: linear-gradient(top, #efedec, #f7f4f4);
@@ -104,4 +93,16 @@ table {
 .button:active:after{
     color:#dbd2d2;
     text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+
+input {
+    border-radius: 10px;
+    border-style:solid;
+    border-color:#1ca7ec46;
+    height: 22px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
 }

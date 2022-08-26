@@ -1,4 +1,5 @@
-import './Table.scss';
+import data from '../assets/data.json';
+import TableRow from './TableRow.jsx';
 
 const Table = () => {
     return (
@@ -13,19 +14,18 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>turquoise</td>
-                        <td>[ ˈtɜːkwɔɪz ]</td>
-                        <td>бирюзовый</td>
-                        <td>
-                            <a href="#" class="button btnSave"></a>
-                            <a href="#" class="button btnDelete"></a>
-                            <a href="#" class="button flower"></a>
-                        </td>
-                    </tr>
+                    {
+                        data.map((item) =>
+                            <TableRow
+                                isEdited={false}
+                                key={item.id}
+                                engVersion={item.english}
+                                rusVersion={item.russian}
+                                transcription={item.transcription}>
+                            </TableRow>)}
                 </tbody>
             </table>
-        </div>
+        </div >
     );
 };
 

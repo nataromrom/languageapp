@@ -1,0 +1,12 @@
+$colorMain: rgb(82, 82, 189);
+$sizeMain: 14px;
+$colorGrayLight: rgba(128, 128, 128, 0.459);
+$colorGrayDark: rgba(94, 91, 91, 0.781);
+$colorGreen: rgba(17, 164, 83, 0.9);
+/* $colorGreen: rgba(86,185,147); */
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
