@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function WordCard(props) {
 
     const [isVisible, setVisible] = useState(false);
+    const [index, setIndex] = useState("0");
     const handleShow = () => {
         setVisible(!isVisible);
+    }
+
+    const handleIndex = () => {
+        setIndex(currenIndex => +currenIndex + 1);
     }
 
     return (
