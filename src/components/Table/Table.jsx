@@ -1,4 +1,4 @@
-import data from '../assets/data';
+import data from '../../assets/data';
 import TableRow from './TableRow.jsx';
 
 const Table = () => {

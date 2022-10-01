@@ -13,9 +13,9 @@ export default function TableRow(props) {
             <td>{isEdited ? <input type="text" defaultValue={props.transcription} /> : props.transcription}</td>
             <td>{isEdited ? <input type="text" defaultValue={props.rusVersion} /> : props.rusVersion}</td>
             <td>
-                {isEdited ? <a href="#" className="button btnSave" onClick={handleChange}></a>
-                    : <a href="#" className="button btnEdit" onClick={handleChange}></a>}
-                <a href="#" className="button btnDelete" onClick={handleChange}></a>
+                {isEdited ? <div className="button btnSave" onClick={handleChange}></div>
+                    : <div className="button btnEdit" onClick={handleChange}></div>}
+                <div className="button btnDelete" onClick={handleChange}></div>
             </td>
         </tr>
     );

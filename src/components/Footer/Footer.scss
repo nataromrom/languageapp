@@ -1,0 +1,13 @@
+
+.footer {
+    @include flexCenter; 
+    color: $colorMain;
+    width: 100vw;
+    height:50px;
+    margin-top: auto;
+    box-shadow: 5px 0px 25px -5px #5b3ab44d;
+    margin-top: 30px;
+    display:  flex;
+    align-items: center;
+}
+

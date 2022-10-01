@@ -5,25 +5,33 @@
         border: 1px solid $colorGrayLight;
         border-collapse: collapse;
         padding:  5px 20px;
-        background-color:#0088cc63;
+        background-color: #8254ff4d;
+        text-transform: uppercase;
+        font-family: Hack, monospace;
+        color:   #555252d8;
     }
 
     td {
         border: 1px solid $colorGrayLight;
         border-collapse: collapse;
         padding:  2px 20px;
+        border-top: 1px solid #555252d8;
     }
 }
 
 table {
     border-collapse: collapse;
+    overflow: hidden; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
 }
+
 
 .button{
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    box-shadow: 0px 8px 10px 0px #655eaa41, inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
     height: 40px;
     margin: 8px;
@@ -31,6 +39,7 @@ table {
     width: 38px;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
+    cursor: pointer;
 }
 
 .button:after{
@@ -98,9 +107,10 @@ table {
 input {
     border-radius: 10px;
     border-style:solid;
-    border-color:#1ca7ec46;
+    border-color:#19c23546;
     height: 22px;
     text-align: center;
+    cursor: pointer;
 }
 
 input:focus {

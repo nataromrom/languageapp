@@ -1,8 +1,9 @@
 @import 'variables';
 @import 'general';
 
-@import '../../components/Footer.scss';
-@import '../../components/Header.scss';
-@import '../../components/Table.scss';
-@import '../../components/WordCard.scss';
-@import '../../components/CardSlider.scss';
+@import '../../components/Footer/Footer.scss';
+@import '../../components/Header/Header.scss';
+@import '../../components/Table/Table.scss';
+@import '../../components/WordCard/WordCard.scss';
+@import '../../components/CardSlider/CardSlider.scss';
+@import '../../components/NotFoundPage/NotFoundPage.scss';

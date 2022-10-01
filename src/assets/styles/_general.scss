@@ -1,6 +1,25 @@
+
+
+.App{
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+}
+
+body {
+    margin: 0px; padding: 0px;
+}
+
 .main, .cards {
     @include flexCenter;
     flex-wrap: wrap;
+}
+
+.main{
+    display: flex;
+    margin-top: 60px;
+    flex: 1 1 auto;
+    align-content: flex-start;
 }
 
 .cards {
@@ -15,4 +34,8 @@ a {
     @include flexCenter;
     width: 100%;
     margin-bottom: 30px;
+}
+
+button {
+    border: none;
 }

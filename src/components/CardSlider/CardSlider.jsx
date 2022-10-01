@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import WordCard from './WordCard';
+import { useState } from 'react';
+import WordCard from '../WordCard/WordCard';
 
 const CardSlider = (props) => {
+
     const words = props.words;
-    const [currentIndex, setIndex] = useState(+props.position || 0);
+    const [currentIndex, setIndex] = useState(props.position || 0);
 
     const showNext = () => {
         if (currentIndex === words.length - 1) {
@@ -23,9 +24,7 @@ const CardSlider = (props) => {
 
     return (
         <div className='cardSlider'>
-
-
-            <a href="#" className="button btnPrev" onClick={showPrev}></a>
+            <div className="button btnPrev" onClick={showPrev}></div>
             <WordCard
                 isEdited={false}
                 key={words[currentIndex].id}
@@ -33,7 +32,7 @@ const CardSlider = (props) => {
                 rusVersion={words[currentIndex].russian}
                 transcription={words[currentIndex].transcription}>
             </WordCard>
-            <a href="#" className="button btnNext" onClick={showNext}></a>
+            <div className="button btnNext" onClick={showNext}></div>
         </div>
 
     );

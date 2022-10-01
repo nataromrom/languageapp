@@ -1,13 +1,28 @@
-$colorMain: rgb(82, 82, 189);
+$colorMain: #8254ff;
 $sizeMain: 14px;
 $colorGrayLight: rgba(128, 128, 128, 0.459);
 $colorGrayDark: rgba(94, 91, 91, 0.781);
 $colorGreen: rgba(17, 164, 83, 0.9);
 $colorArrow: #2113a1;
+$colorHead: rgb(251,251,251);
+
+$stroke: rgba(70, 67, 67, 0.63);
+$shadow: #7d5cdab9;
+
 /* $colorGreen: rgba(86,185,147); */
 
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+
+@mixin stroke-width($property) {
+	-webkit-text-stroke-width: $property;
+	-moz-text-stroke-width: $property;
+}
+
+@mixin stroke-color($property) {
+	-webkit-text-stroke-color: $property;
+	-moz-text-stroke-color: $property;
+}

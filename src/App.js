@@ -1,24 +1,43 @@
-
+import React from "react";
 import './App.css';
 import './assets/styles/styles.scss';
-import Header from './components/Header.jsx'; 
-import Table from './components/Table.jsx'; 
-import Footer from './components/Footer.jsx';
-import WordCard from './components/WordCard';
-import CardSlider from './components/CardSlider';
-import words from './assets/data.json';
+import Header from './components/Header/Header.jsx'; 
+import Table from './components/Table/Table.jsx'; 
+import Footer from './components/Footer/Footer.jsx';
+import CardSlider from './components/CardSlider/CardSlider';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
+import words from './assets/data.json';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link
+  } from "react-router-dom";
 
 function App() {
 return (
+    <BrowserRouter>
     <div className="App">
+        
         <Header /> 
         <main className="main">
-            <CardSlider    
+            <Routes>
+                <Route exact path="/game" element={
+                    <CardSlider    
+                        words={words}
+                        position={0}>
+                    </CardSlider>
+                }> </Route>
+                <Route exact path="/" element={<Table/>}> </Route>
+                <Route path="*" element={<NotFoundPage/>}></Route>
+            </Routes>
+
+            {/* <CardSlider    
                 words={words}
-                position="0">
-            </CardSlider>
-            <Table /> 
+                position={0}>
+            </CardSlider> */}
+            {/* <Table />  */}
             {/* <div className="cards">
                     <WordCard
                         isEdited={false}
@@ -44,6 +63,7 @@ return (
         </main> 
         <Footer /> 
     </div>
+    </BrowserRouter>
 );
 }
 
