@@ -28,9 +28,9 @@ return (
                         words={words}
                         position={0}>
                     </CardSlider>
-                }> </Route>
-                <Route exact path="/" element={<Table/>}> </Route>
-                <Route path="*" element={<NotFoundPage/>}></Route>
+                } />
+                <Route exact path="/" element={<Table/>} />
+                <Route path="*" element={<NotFoundPage/>} />
             </Routes>
 
             {/* <CardSlider    

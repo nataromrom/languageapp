@@ -5,6 +5,7 @@ const CardSlider = (props) => {
 
     const words = props.words;
     const [currentIndex, setIndex] = useState(props.position || 0);
+    const [count, setCount] = useState(0);
 
     const showNext = () => {
         if (currentIndex === words.length - 1) {
@@ -22,15 +23,22 @@ const CardSlider = (props) => {
         };
     }
 
+    const addCount = () => {
+        setCount(count + 1);
+    }
+
     return (
+
         <div className='cardSlider'>
+            <div className="counter">Изучено слов:{count}</div>
             <div className="button btnPrev" onClick={showPrev}></div>
             <WordCard
                 isEdited={false}
                 key={words[currentIndex].id}
                 engVersion={words[currentIndex].english}
                 rusVersion={words[currentIndex].russian}
-                transcription={words[currentIndex].transcription}>
+                transcription={words[currentIndex].transcription}
+                addCount={addCount}>
             </WordCard>
             <div className="button btnNext" onClick={showNext}></div>
         </div>

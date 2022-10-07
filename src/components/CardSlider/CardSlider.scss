@@ -1,13 +1,13 @@
-
-.btnPrev:after{
+.btnPrev:after {
     content: "«";
     left: 4px;
     top: 6px;
 }
 
-.btnPrev:hover:after, .btnNext:hover:after{
+.btnPrev:hover:after,
+.btnNext:hover:after {
     color: $colorArrow;
-    text-shadow:0px 0px 6px #574bca;
+    text-shadow: 0px 0px 6px #574bca;
 }
 
 .btnNext:after {
@@ -16,3 +16,10 @@
     top: 6px;
 }
 
+.counter {
+    width: 100%;
+    font-family: Hack, monospace;
+    text-transform: uppercase;
+    color: #8f8f8f;
+    font-size: 19px;
+}
