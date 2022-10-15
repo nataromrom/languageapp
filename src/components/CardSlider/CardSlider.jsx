@@ -31,7 +31,7 @@ const CardSlider = (props) => {
 
         <div className='cardSlider'>
             <div className="counter">Изучено слов:{count}</div>
-            <div className="button btnPrev" onClick={showPrev}></div>
+            <button className="button btnPrev" onClick={showPrev}></button>
             <WordCard
                 isEdited={false}
                 key={words[currentIndex].id}
@@ -40,7 +40,7 @@ const CardSlider = (props) => {
                 transcription={words[currentIndex].transcription}
                 addCount={addCount}>
             </WordCard>
-            <div className="button btnNext" onClick={showNext}></div>
+            <button className="button btnNext" onClick={showNext}></button>
         </div>
 
     );

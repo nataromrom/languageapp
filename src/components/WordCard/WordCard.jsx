@@ -22,7 +22,7 @@ export default function WordCard(props) {
         <div className="card">
             <div className="word">{props.engVersion}</div>
             <div className="transcription">{props.transcription}</div>
-            <button className={isVisible ? "btnVisible word" : "btnTranslate"} disabled={isVisible ? true : false} ref={mainRef} onClick={handleShow}>
+            <button className={isVisible ? "btnVisible word" : "btnTranslate"} disabled={isVisible} ref={mainRef} onClick={handleShow}>
                 {isVisible ? props.rusVersion : "Проверить"}
             </button>
         </div >
