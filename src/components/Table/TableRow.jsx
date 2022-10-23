@@ -83,6 +83,11 @@ export default function TableRow(props) {
                 rusVersion: ''
             });
             setEdited(!isEdited);
+        } else {
+            //Метод для удаления слова (не работает)
+            fetch(`/api/words/${props.key}/delete`, { metod: 'POST' })
+                .then((response) => response.json())
+                .then((response) => setState(response))
         }
 
     }
@@ -92,6 +97,11 @@ export default function TableRow(props) {
         if (isValid) {
             console.log(state);
             setEdited(!isEdited);
+
+            //Метод для изменения слова (не работает)
+            fetch(`/api/words/${props.key}/update`, { metod: 'POST', body: JSON.stringify({ state }) })
+                .then((response) => response.json())
+                .then((response) => setState(response))
         }
     }
 

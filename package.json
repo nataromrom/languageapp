@@ -1,6 +1,7 @@
 {
   "name": "languageapp",
   "version": "0.1.0",
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

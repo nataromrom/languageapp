@@ -9,6 +9,14 @@ $colorHead: rgb(251,251,251);
 $stroke: rgba(70, 67, 67, 0.63);
 $shadow: #7d5cdab9;
 
+
+$bg: rgb(251,251,251);
+$c-01: #ad9cda;
+$c-02: #8b6fda;
+
+$font-01: "Oxygen", sans-serif;
+
+@import url("https://fonts.googleapis.com/css?family=Oxygen:700&display=swap");
 /* $colorGreen: rgba(86,185,147); */
 
 @mixin flexCenter {

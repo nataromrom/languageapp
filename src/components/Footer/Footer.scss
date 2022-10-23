@@ -3,7 +3,7 @@
     @include flexCenter; 
     color: $colorMain;
     width: 100vw;
-    height:50px;
+    height:70px;
     margin-top: auto;
     box-shadow: 5px 0px 25px -5px #5b3ab44d;
     margin-top: 30px;
@@ -11,3 +11,19 @@
     align-items: center;
 }
 
+.footerImage {
+    animation-direction: reverse;
+	animation-duration: 20s;
+	animation-name: move;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes move {
+	from {
+		margin-left: -1800px;
+	}
+	to {
+		margin-left: 1800px;
+	}
+}

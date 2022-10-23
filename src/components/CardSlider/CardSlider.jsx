@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import WordCard from '../WordCard/WordCard';
+import { WordContext } from '../Context/WordContext';
 
-const CardSlider = (props) => {
+const CardSlider = () => {
 
-    const words = props.words;
-    const [currentIndex, setIndex] = useState(props.position || 0);
+    const { state, setState } = useContext(WordContext);
+    const words = state.data;
+
+    const [currentIndex, setIndex] = useState(0);
     const [count, setCount] = useState(0);
 
     const showNext = () => {
