@@ -5,7 +5,7 @@ const NewWord = () => {
     const { isLoading, words, addButtonClick, addWord, getWords } = useContext(WordContext);
     const [newWord, setNewWOrd] = useState({
         english: "",
-        transcription: "[]",
+        transcription: "[ ]",
         russian: "",
         tag: "",
     });
@@ -17,7 +17,7 @@ const NewWord = () => {
             .then(() => getWords());
         setNewWOrd({
             english: "",
-            transcription: "[]",
+            transcription: "[ ]",
             russian: "",
             tag: "",
         })
