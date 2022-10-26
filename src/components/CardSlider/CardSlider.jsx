@@ -4,8 +4,8 @@ import { WordContext } from '../Context/WordContext';
 
 const CardSlider = () => {
 
-    const { state, setState } = useContext(WordContext);
-    const words = state.data;
+
+    const { words } = useContext(WordContext);
 
     const [currentIndex, setIndex] = useState(0);
     const [count, setCount] = useState(0);

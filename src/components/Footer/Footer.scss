@@ -2,7 +2,6 @@
 .footer {
     @include flexCenter; 
     color: $colorMain;
-    width: 100vw;
     height:70px;
     margin-top: auto;
     box-shadow: 5px 0px 25px -5px #5b3ab44d;
@@ -13,7 +12,7 @@
 
 .footerImage {
     animation-direction: reverse;
-	animation-duration: 20s;
+	animation-duration: 15s;
 	animation-name: move;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -21,9 +20,9 @@
 
 @keyframes move {
 	from {
-		margin-left: -1800px;
+		margin-left: -80vw;
 	}
 	to {
-		margin-left: 1800px;
+		margin-left: 80vw;
 	}
 }

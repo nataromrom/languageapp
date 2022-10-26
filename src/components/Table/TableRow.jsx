@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { WordContext } from './../Context/WordContext';
 
 
 export default function TableRow(props) {
-
     const [isEdited, setEdited] = useState(props.isEdited);
+    const { editWord, deleteWord, getWords, addWord } = useContext(WordContext);
     const [state, setState] = useState({
-        engVersion: props.engVersion,
+        english: props.english,
         transcription: props.transcription,
-        rusVersion: props.rusVersion,
+        russian: props.russian,
     });
     const [isValid, setValid] = useState(true);
     const [isError, setError] = useState({
-        engVersion: '',
+        english: '',
         transcription: '',
-        rusVersion: ''
+        russian: ''
     });
 
     useEffect(() => {
-        if (!state.transcription || !state.rusVersion || !state.engVersion) {
+        if (!state.transcription || !state.russian || !state.english) {
             setValid(false);
         } else {
             setValid(true);
         }
-    }, [state.transcription, state.rusVersion, state.engVersion])
+    }, [state.transcription, state.russian, state.english])
 
     useEffect(() => {
-        if (isError.transcription || isError.rusVersion || isError.engVersion) {
+        if (isError.transcription || isError.russian || isError.english) {
             setValid(false);
         } else {
             setValid(true);
         }
-    }, [isError.transcription, isError.rusVersion, isError.engVersion])
+    }, [isError.transcription, isError.russian, isError.english])
 
     const editChange = () => {
         setEdited(!isEdited);
@@ -70,24 +71,23 @@ export default function TableRow(props) {
     }
 
     const eraseChange = () => {
-
         if (isEdited) {
             setState({
-                engVersion: props.engVersion,
+                english: props.english,
                 transcription: props.transcription,
-                rusVersion: props.rusVersion
+                russian: props.russian
             });
             setError({
-                engVersion: '',
+                english: '',
                 transcription: '',
-                rusVersion: ''
+                russian: ''
             });
             setEdited(!isEdited);
         } else {
-            //Метод для удаления слова (не работает)
-            fetch(`/api/words/${props.key}/delete`, { metod: 'POST' })
-                .then((response) => response.json())
-                .then((response) => setState(response))
+            console.log(props.id);
+            console.log(state);
+            deleteWord(props.id)
+                .then(() => getWords());
         }
 
     }
@@ -95,24 +95,23 @@ export default function TableRow(props) {
 
     const saveChange = () => {
         if (isValid) {
+            console.log(props.id);
             console.log(state);
             setEdited(!isEdited);
-
-            //Метод для изменения слова (не работает)
-            fetch(`/api/words/${props.key}/update`, { metod: 'POST', body: JSON.stringify({ state }) })
-                .then((response) => response.json())
-                .then((response) => setState(response))
+            console.log(props.id);
+            editWord(props.id, state)
+                .then(() => getWords());
         }
     }
 
     return (
         <tr>
-            <td>{isError.engVersion ? <div className="errMsg">{isError.engVersion}</div> : ""}
-                {isEdited ? <input type="text" className={state.engVersion && !isError.engVersion ? "" : "noValid"} value={state.engVersion} onChange={handleChange} name="engVersion" /> : state.engVersion}</td>
+            <td>{isError.english ? <div className="errMsg">{isError.english}</div> : ""}
+                {isEdited ? <input type="text" className={state.english && !isError.english ? "" : "noValid"} value={state.english} onChange={handleChange} name="english" /> : state.english}</td>
             <td>{isError.transcription ? <div className="errMsg">{isError.transcription}</div> : ''}
                 {isEdited ? <input type="text" className={state.transcription && !isError.transcription ? "" : "noValid"} value={state.transcription} onChange={handleChange} name="transcription" /> : state.transcription}</td>
-            <td>{isError.rusVersion ? <div className="errMsg">{isError.rusVersion}</div> : ''}
-                {isEdited ? <input type="text" className={state.rusVersion && !isError.rusVersion ? "" : "noValid"} value={state.rusVersion} onChange={handleChange} name="rusVersion" /> : state.rusVersion}</td>
+            <td>{isError.russian ? <div className="errMsg">{isError.russian}</div> : ''}
+                {isEdited ? <input type="text" className={state.russian && !isError.russian ? "" : "noValid"} value={state.russian} onChange={handleChange} name="russian" /> : state.russian}</td>
             <td>
                 {isEdited ? <button className="button btnSave" onClick={saveChange} disabled={!isValid}></button>
                     : <button className="button btnEdit" onClick={editChange}></button>}

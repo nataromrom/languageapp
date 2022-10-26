@@ -2,31 +2,77 @@ import React, { useState, useEffect } from 'react';
 const WordContext = React.createContext();
 
 function WordContextProvider(props) {
-    const [state, setState] = useState({
-        data: [],
-        isLoading: true,
-        error: null,
-    });
+    const [words, setWords] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [visible, setVisible] = useState(false);
+
     useEffect(() => {
-        fetch(`/api/words`)
+        getWords();
+    }, []);
+
+
+    const addButtonClick = () => {
+        setVisible(!visible);
+    }
+
+    async function getWords() {
+        setLoading(true);
+
+        await fetch(`/api/words`)
             .then(response => {
-                if (response.ok) { 
+                if (response.ok) {
                     return response.json();
                 } else {
                     throw new Error('Something went wrong ...');
                 }
             })
             .then((response) => {
-                setState({
-                    data: response,
-                    isLoading: false,
-                })
+                console.log(response)
+                setWords(response);
             })
-            .catch(error => setState({ error, isLoading: false }));
-    }, [])
+            .catch(error => {
+                setError(error);
+            });
+
+        setLoading(false);
+    }
+
+    async function editWord(id, word) {
+        word.tags  = ''; 
+        console.log(word);
+
+        setLoading(true);
+        console.log(id);
+        console.log(word);
+        await fetch(`/api/words/${id}/update`,  { method: 'POST', body: JSON.stringify(word) })
+            .then((response) => response.json())
+            .then((response) => console.log(response));
+        setLoading(false);
+    }
+
+    async function deleteWord(id) {
+        setLoading(true);
+
+        await fetch(`/api/words/${id}/delete`, { method: 'POST' })
+            .then((response) => response.json())
+            .then((response) => console.log(response));
+
+        setLoading(false);
+    }
  
+    async function addWord(word) {
+        setLoading(true);
+
+        await fetch(`/api/words/add`, { method: 'POST', body: JSON.stringify(word) })
+            .then((response) => response.json())
+            .then((response) => console.log(response));
+
+        setLoading(false);
+    }
+
     return (
-        <WordContext.Provider value={{ state, setState }}>
+        <WordContext.Provider value={{ words, setWords, editWord, deleteWord, getWords, addWord, isLoading, error, visible, addButtonClick }}>
             {props.children}
         </WordContext.Provider>
     );
