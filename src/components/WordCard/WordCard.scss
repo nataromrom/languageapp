@@ -3,11 +3,11 @@
     flex-direction: column;
     width: 145px;
     height: 192px;
-    background-color: rgba(244,242,243);
+    background-color: rgba(244, 242, 243);
     border-radius: 20px;
-    margin: 30px 10px 0px 10px; 
+    margin: 30px 10px 0px 10px;
     border: 1px solid $colorGrayLight;
-    
+
 }
 
 .btnTranslate {
@@ -15,7 +15,7 @@
     background-color: $colorGreen;
     padding: 2px 15px;
     display: inline-block;
-    margin-top: 35px; 
+    margin-top: 35px;
     color: white;
     cursor: pointer;
 }
@@ -33,14 +33,14 @@
 .btnVisible {
     padding: 2px 15px;
     display: inline-block;
-    margin-top: 35px; 
+    margin-top: 35px;
     color: $colorGreen;
     font-size: 17px;
     outline: none;
 }
 
- .btnTranslate:hover {
-    box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.3);
+.btnTranslate:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, .6), inset 0 0 10px rgba(0, 255, 0, .3);
     outline: none;
 }
 
@@ -51,11 +51,12 @@
 
 @keyframes glow {
     0% {
-		border-color: #393;
-		box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1);
-    }	
+        border-color: #393;
+        box-shadow: 0 0 5px rgba(0, 255, 0, .2), inset 0 0 5px rgba(0, 255, 0, .1);
+    }
+
     100% {
-		border-color: #6f6;
-		box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4);
+        border-color: #6f6;
+        box-shadow: 0 0 20px rgba(0, 255, 0, .6), inset 0 0 10px rgba(0, 255, 0, .4);
     }
 }

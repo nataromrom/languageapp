@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { WordContext } from './../Context/WordContext';
-
+import React, { useState, useEffect } from "react";
 
 export default function TableRow(props) {
     const [isEdited, setEdited] = useState(props.isEdited);
-    const { editWord, deleteWord, getWords, addWord } = useContext(WordContext);
+
     const [state, setState] = useState({
         english: props.english,
         transcription: props.transcription,
@@ -12,9 +10,9 @@ export default function TableRow(props) {
     });
     const [isValid, setValid] = useState(true);
     const [isError, setError] = useState({
-        english: '',
-        transcription: '',
-        russian: ''
+        english: "",
+        transcription: "",
+        russian: ""
     });
 
     useEffect(() => {
@@ -43,7 +41,6 @@ export default function TableRow(props) {
 
         if (e.target.name === "transcription") {
 
-
             if (e.target.value.length >= 3 && /\[(.*?)\]/.test(e.target.value)) {
                 setError({ ...isError, [e.target.name]: "" });
             } else {
@@ -57,7 +54,6 @@ export default function TableRow(props) {
                     console.log(isError);
                 }
             }
-
         } else {
 
             if (e.target.value.length < 2) {
@@ -65,9 +61,7 @@ export default function TableRow(props) {
             } else {
                 setError({ ...isError, [e.target.name]: "" });
             }
-
         }
-
     }
 
     const eraseChange = () => {
@@ -78,29 +72,20 @@ export default function TableRow(props) {
                 russian: props.russian
             });
             setError({
-                english: '',
-                transcription: '',
-                russian: ''
+                english: "",
+                transcription: "",
+                russian: "",
             });
             setEdited(!isEdited);
         } else {
-            console.log(props.id);
-            console.log(state);
-            deleteWord(props.id)
-                .then(() => getWords());
+            props.deleteWord(props.id);
         }
-
     }
-
 
     const saveChange = () => {
         if (isValid) {
-            console.log(props.id);
-            console.log(state);
             setEdited(!isEdited);
-            console.log(props.id);
-            editWord(props.id, state)
-                .then(() => getWords());
+            props.editWord(props.id, state);
         }
     }
 

@@ -1,11 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import WordCard from '../WordCard/WordCard';
-import { WordContext } from '../Context/WordContext';
-
-const CardSlider = () => {
+import { observer, inject } from 'mobx-react';
 
 
-    const { words } = useContext(WordContext);
+const CardSlider = ({ words }) => {
 
     const [currentIndex, setIndex] = useState(0);
     const [count, setCount] = useState(0);
@@ -49,4 +47,11 @@ const CardSlider = () => {
     );
 };
 
-export default CardSlider;
+
+export default inject(({ WordsData }) => {
+    const { words } = WordsData;
+
+    return {
+        words
+    }
+})(observer(CardSlider));
