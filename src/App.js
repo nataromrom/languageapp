@@ -11,7 +11,7 @@ import store from "./components/store";
 
 
 import {
-    BrowserRouter,
+    HashRouter as Router,
     Routes,
     Route,
     Link
@@ -20,7 +20,7 @@ import {
 function App() {
 return (
     <Provider {...store}> 
-        <BrowserRouter>
+        <Router>
         <div className="App">
             <Header /> 
             <main className="main">
@@ -32,7 +32,7 @@ return (
             </main> 
             <Footer /> 
         </div>
-        </BrowserRouter>
+        </Router>
     </Provider>
 );
 }
